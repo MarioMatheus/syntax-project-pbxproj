@@ -13,7 +13,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.project.pbxproj",
-				"match": "[A-Z][A-Z|0-9]{23}"
+				"match": "[A-Z|0-9]{24}"
 			}]
 		},
 		"properties": {
