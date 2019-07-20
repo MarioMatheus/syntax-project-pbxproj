@@ -1,7 +1,7 @@
 {
     "name": "syntax-project-pbxproj",
     "displayName": "Syntax project.pbxproj",
-    "description": "Syntax Highlight Support to project.pbxproj files",
+    "description": "VSCode Syntax Highlight Support to project.pbxproj files",
     "version": "0.0.1",
     "icon": "images/icon.png",
     "engines": {
@@ -10,6 +10,10 @@
     "categories": [
         "Programming Languages"
     ],
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/MarioMatheus/syntax-project-pbxproj.git"
+    },
     "contributes": {
         "languages": [{
             "id": "project.pbxproj",
