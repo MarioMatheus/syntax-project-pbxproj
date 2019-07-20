@@ -19,3 +19,7 @@ Syntax project.pbxproj allow Visual Studio Code understand the .pbxproj grammar 
 ## Requirements
 
 This extension no has requirements
+
+## License
+
+See more details in MIT [LICENSE.md](LICENSE)
