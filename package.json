@@ -1,0 +1,25 @@
+{
+    "name": "syntax-project-pbxproj",
+    "displayName": "Syntax project.pbxproj",
+    "description": "Syntax Highlight Support to project.pbxproj files",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.36.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "project.pbxproj",
+            "aliases": ["Project.pbxproj", "project.pbxproj"],
+            "extensions": [".pbxproj"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "project.pbxproj",
+            "scopeName": "source.pbxproj",
+            "path": "./syntaxes/project.pbxproj.tmLanguage.json"
+        }]
+    }
+}
