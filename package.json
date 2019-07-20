@@ -3,6 +3,7 @@
     "displayName": "Syntax project.pbxproj",
     "description": "Syntax Highlight Support to project.pbxproj files",
     "version": "0.0.1",
+    "icon": "images/icon.png",
     "engines": {
         "vscode": "^1.36.0"
     },
