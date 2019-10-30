@@ -15,6 +15,11 @@
       "type": "git",
       "url": "https://github.com/MarioMatheus/syntax-project-pbxproj.git"
     },
+    "activationEvents": [
+        "onCommand:extension.lintPbx",
+        "onLanguage:project.pbxproj"
+	],
+	"main": "./extension.js",
     "contributes": {
         "languages": [{
             "id": "project.pbxproj",
@@ -26,6 +31,10 @@
             "language": "project.pbxproj",
             "scopeName": "source.pbxproj",
             "path": "./syntaxes/project.pbxproj.tmLanguage.json"
-        }]
+        }],
+        "commands": [{
+            "command": "extension.lintPbx",
+            "title": "Lint Pbx"
+		}]
     }
 }
