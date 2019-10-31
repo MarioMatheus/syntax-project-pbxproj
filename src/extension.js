@@ -5,7 +5,7 @@ function activate(context) {
   const collection = vscode.languages.createDiagnosticCollection('pbx')
 
   if (vscode.window.activeTextEditor) updateDiagnostics(vscode.window.activeTextEditor.document, collection)
-
+  
   context.subscriptions.push(
     vscode.window.onDidChangeActiveTextEditor(editor => {
       if (editor) updateDiagnostics(editor.document, collection)
@@ -23,6 +23,8 @@ function activate(context) {
 exports.activate = activate;
 
 function updateDiagnostics(document, collection) {
+  if (document.languageId !== 'project.pbxproj') return
+  
   const text = document.getText()
   const { status, ...diagnostic } = getDiagnostic(text)
 
