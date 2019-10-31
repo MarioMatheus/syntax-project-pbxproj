@@ -4,7 +4,8 @@ This extension integrates the project.pbxproj into Visual Studio Code, allowing 
 
 ## Features
 
-Syntax project.pbxproj allow Visual Studio Code understand the .pbxproj grammar and can highlight file.
+- Syntax project.pbxproj allow Visual Studio Code understand the .pbxproj grammar and can highlight file.
+- *<LastUpdate>* This extension can detect some syntax errors and provide a diagnostic like a lint.
 
 **Examples:**
 <br/> <br/>
