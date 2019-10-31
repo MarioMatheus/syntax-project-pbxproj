@@ -2,7 +2,7 @@
     "name": "syntax-project-pbxproj",
     "displayName": "Syntax Xcode Project Data",
     "description": "VSCode Syntax Highlight Support to project.pbxproj files",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "publisher": "mariomatheu",
     "icon": "images/icon.png",
     "engines": {
