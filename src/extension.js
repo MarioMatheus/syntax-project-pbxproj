@@ -1,6 +1,5 @@
 const vscode = require('vscode')
 const { getDiagnostic } = require('./diagnostics')
-// const _ = require('./../playground')
 
 function activate(context) {
   const collection = vscode.languages.createDiagnosticCollection('pbx')
@@ -28,13 +27,13 @@ function updateDiagnostics(document, collection) {
   const { status, ...diagnostic } = getDiagnostic(text)
 
   if (status === false)
-    createDiagnosticAt(document, collection, diagnostic.token, diagnostic.message)
+    createDiagnosticAt(document, collection, diagnostic.index.offset, 'Syntax Error - Unexpected Token')
   else
     collection.set(document.uri, [])
 }
 
-function createDiagnosticAt(document, collection, token, message) {
-  const range = new vscode.Range(document.positionAt(token.index), document.positionAt(token.index + 2))
+function createDiagnosticAt(document, collection, index, message) {
+  const range = new vscode.Range(document.positionAt(index - 1), document.positionAt(index + 1))
   collection.set(document.uri,
     [{
       code: '', message, range, source: '',
