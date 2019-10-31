@@ -19,7 +19,7 @@
         "onCommand:extension.lintPbx",
         "onLanguage:project.pbxproj"
 	],
-	"main": "./extension.js",
+	"main": "./src/extension.js",
     "contributes": {
         "languages": [{
             "id": "project.pbxproj",
