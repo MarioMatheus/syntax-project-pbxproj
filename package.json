@@ -1,22 +1,22 @@
 {
     "name": "syntax-project-pbxproj",
-    "displayName": "Syntax project.pbxproj",
+    "displayName": "Syntax Xcode Project Data",
     "description": "VSCode Syntax Highlight Support to project.pbxproj files",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "mariomatheu",
     "icon": "images/icon.png",
     "engines": {
         "vscode": "^1.36.0"
     },
     "categories": [
-        "Programming Languages"
+        "Programming Languages",
+        "Linters"
     ],
     "repository": {
       "type": "git",
       "url": "https://github.com/MarioMatheus/syntax-project-pbxproj.git"
     },
     "activationEvents": [
-        "onCommand:extension.lintPbx",
         "onLanguage:project.pbxproj"
 	],
 	"main": "./src/extension.js",
@@ -31,10 +31,6 @@
             "language": "project.pbxproj",
             "scopeName": "source.pbxproj",
             "path": "./syntaxes/project.pbxproj.tmLanguage.json"
-        }],
-        "commands": [{
-            "command": "extension.lintPbx",
-            "title": "Lint Pbx"
-		}]
+        }]
     }
 }
