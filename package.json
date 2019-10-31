@@ -2,7 +2,7 @@
     "name": "syntax-project-pbxproj",
     "displayName": "Syntax Xcode Project Data",
     "description": "VSCode Syntax Highlight Support to project.pbxproj files",
-    "version": "0.0.1",
+    "version": "0.1.1",
     "publisher": "mariomatheu",
     "icon": "images/icon.png",
     "engines": {
@@ -13,24 +13,33 @@
         "Linters"
     ],
     "repository": {
-      "type": "git",
-      "url": "https://github.com/MarioMatheus/syntax-project-pbxproj.git"
+        "type": "git",
+        "url": "https://github.com/MarioMatheus/syntax-project-pbxproj.git"
     },
     "activationEvents": [
         "onLanguage:project.pbxproj"
-	],
-	"main": "./src/extension.js",
+    ],
+    "main": "./src/extension.js",
     "contributes": {
-        "languages": [{
-            "id": "project.pbxproj",
-            "aliases": ["Project.pbxproj", "project.pbxproj"],
-            "extensions": [".pbxproj"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "project.pbxproj",
-            "scopeName": "source.pbxproj",
-            "path": "./syntaxes/project.pbxproj.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "project.pbxproj",
+                "aliases": [
+                    "Project.pbxproj",
+                    "project.pbxproj"
+                ],
+                "extensions": [
+                    ".pbxproj"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "project.pbxproj",
+                "scopeName": "source.pbxproj",
+                "path": "./syntaxes/project.pbxproj.tmLanguage.json"
+            }
+        ]
     }
 }
