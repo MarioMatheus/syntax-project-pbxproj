@@ -1,24 +1,15 @@
 const P = require('../lib/parsimmon')
 
 const PBX = P.createLanguage({
-	References: () => P.regexp(/([A-Z|0-9]{32})|([A-Z|0-9]{24})|([A-Z|0-9]{10})/)
-		.assert(r => {
-			let hasNumber = false
-			let hasLetter = false
-			for (let i = 0; i < r.length; i++) {
-				isNaN(Number(r[i])) ? hasLetter = true : hasNumber = true	
-			}
-			return hasNumber && hasLetter && (r.length === 32 || r.length === 24 || r.length === 10)
-		}),
-	Properties: () => P.regexp(/([a-zA-Z_][a-zA-Z0-9_]*)((.[a-zA-Z0-9_][a-zA-Z0-9_]*)+)?/),
+	PropertyRef: () => P.regexp(/([a-zA-Z0-9_][a-zA-Z0-9_]*)((.[a-zA-Z0-9_][a-zA-Z0-9_]*)+)?/),
 	Path: r => P.alt(
-		P.seqObj(P.string('/'), ['properties', P.alt(P.string('..'), r.Properties)], ['rest', P.alt(r.Path, P.optWhitespace)]),
-		P.seqObj(['properties', P.alt(P.string('..'), r.Properties)], ['rest', r.Path])
+		P.seqObj(P.string('/'), ['properties', P.alt(P.string('..'), r.PropertyRef)], ['rest', P.alt(r.Path, P.optWhitespace)]),
+		P.seqObj(['properties', P.alt(P.string('..'), r.PropertyRef)], ['rest', r.Path])
 	),
 	NumberLiteral: () => P.regexp(/-?([0-9]+)((.[0-9]+)+)?/),
 	StringLiteral: () => P.regexp(/"(?:[^\\"]|\\(?:[bfnrtv"\\/]|u[0-9a-fA-F]{4}))*"/),
 	List: r => P
-		.alt(r.StringLiteral, r.References, r.Properties, r.NumberLiteral, r.Path, r.List, r.Object, P.optWhitespace)
+		.alt(r.StringLiteral, r.PropertyRef, r.NumberLiteral, r.Path, r.List, r.Object, P.optWhitespace)
 		.trim(P.optWhitespace)
 		.sepBy(P.string(','))
 		.wrap(P.string('('), P.string(')')),
@@ -28,9 +19,9 @@ const PBX = P.createLanguage({
 		.sepBy(P.string(';'))
 		.wrap(P.string('{'), P.string('}')),
 	Configuration: r => P.seqObj(
-		['lhs', P.alt(r.References, r.Properties, r.StringLiteral)], P.optWhitespace,
+		['lhs', P.alt(r.PropertyRef, r.StringLiteral)], P.optWhitespace,
 		P.string('='), P.optWhitespace,
-		['rhs', P.alt(r.StringLiteral, r.References, r.Properties, r.NumberLiteral, r.Path, r.List, r.Object)]
+		['rhs', P.alt(r.StringLiteral, r.PropertyRef, r.NumberLiteral, r.Path, r.List, r.Object)]
 	),
 	Project: r => P
 		.seqObj(
