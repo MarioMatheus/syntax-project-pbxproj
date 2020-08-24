@@ -1,5 +1,10 @@
 # Syntax project.pbxproj
 
+[![Version](https://vsmarketplacebadge.apphb.com/version/mariomatheu.syntax-project-pbxproj.svg)](https://marketplace.visualstudio.com/items?itemName=mariomatheu.syntax-project-pbxproj)
+[![Installs](https://vsmarketplacebadge.apphb.com/installs-short/mariomatheu.syntax-project-pbxproj.svg
+)](https://marketplace.visualstudio.com/items?itemName=mariomatheu.syntax-project-pbxproj)
+
+
 This extension integrates the project.pbxproj into Visual Studio Code, allowing colorization and grammar knowledge.
 
 ## Features
